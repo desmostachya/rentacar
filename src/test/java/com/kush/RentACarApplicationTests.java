@@ -1,4 +1,4 @@
-package com.kush.rentacar;
+package com.kush;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.kush.rentacar.entity;
+package com.kush.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 

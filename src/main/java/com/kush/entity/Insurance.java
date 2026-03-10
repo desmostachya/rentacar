@@ -1,4 +1,4 @@
-package com.kush.rentacar.entity;
+package com.kush.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,42 +8,45 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "maintenance_record")
+@Table(name = "insurance")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Maintenance {
+public class Insurance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long maintenanceId;
+    private Long insuranceId;
+
+    @Column(unique = true, nullable = false)
+    private String policyNumber;
 
     @Column(nullable = false)
-    private String maintenanceType;
+    private String provider;
 
     @Column(nullable = false)
-    private LocalDate maintenanceDate;
-
-    private LocalDate completionDate;
-
-    @Column(length = 1000)
-    private String description;
-
-    @Column(length = 1000)
-    private String notes;
+    private String insuranceType;
 
     @Column(nullable = false)
-    private BigDecimal cost;
+    private BigDecimal coverageAmount;
+
+    private BigDecimal premiumAmount;
+
+    @Column(nullable = false)
+    private LocalDate startDate;
+
+    @Column(nullable = false)
+    private LocalDate endDate;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private MaintenanceStatus status;
+    private InsuranceStatus status;
 
-    private Long mileageAtService;
+    private String policyDetails;
 
-    private Long nextServiceMileage;
+    private String exclusions;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -55,12 +58,16 @@ public class Maintenance {
     @JoinColumn(name = "vehicle_id", nullable = false)
     private Vehicle vehicle;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reservation_id")
+    private Reservation reservation;
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
         if (status == null) {
-            status = MaintenanceStatus.SCHEDULED;
+            status = InsuranceStatus.ACTIVE;
         }
     }
 
@@ -69,7 +76,7 @@ public class Maintenance {
         updatedAt = LocalDateTime.now();
     }
 
-    public enum MaintenanceStatus {
-        SCHEDULED, IN_PROGRESS, COMPLETED, CANCELLED, OVERDUE
+    public enum InsuranceStatus {
+        ACTIVE, EXPIRED, CANCELLED, PENDING
     }
 }
