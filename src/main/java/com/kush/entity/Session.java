@@ -16,7 +16,7 @@ public class Session {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long sessionId;
+    private Long id;
 
     @Column(nullable = false)
     private String token;
