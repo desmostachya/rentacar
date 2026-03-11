@@ -61,8 +61,6 @@ public class AuthenticationService implements AuthService {
                 .refreshToken(refreshToken)
                 .accessTokenExpiry((int) validity)
                 .refreshTokenExpiry((int) refreshTokenValidity)
-                .token(accessToken)
-                .email(user.getUsername())
                 .build();
     }
 
@@ -112,8 +110,6 @@ public class AuthenticationService implements AuthService {
                     .refreshToken(refreshToken)
                     .accessTokenExpiry((int) validity)
                     .refreshTokenExpiry((int) refreshTokenValidity)
-                    .token(accessToken)
-                    .email(user.getUsername())
                     .build();
         } catch (AuthenticationException e) {
             log.warn("Login failed for user: {}", request.getEmail());
@@ -159,8 +155,6 @@ public class AuthenticationService implements AuthService {
                 .refreshToken(refreshToken)
                 .accessTokenExpiry((int) validity)
                 .refreshTokenExpiry((int) refreshTokenValidity)
-                .token(accessToken)
-                .email(user.getUsername())
                 .build();
     }
 

@@ -17,7 +17,6 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/maintenance")
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080"})
 public class MaintenanceController {
 
     private final MaintenanceService maintenanceService;

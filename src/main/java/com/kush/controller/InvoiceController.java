@@ -15,7 +15,6 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/invoices")
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080"})
 public class InvoiceController {
 
     private final InvoiceService invoiceService;

@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 @Slf4j
 @RestController
 @RequestMapping("/auth")
-//@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080"})
 public class AuthenticationController {
 
     private final AuthenticationService authenticationService;

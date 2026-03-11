@@ -18,7 +18,6 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/reservations")
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080"})
 public class ReservationController {
 
     private final ReservationService reservationService;

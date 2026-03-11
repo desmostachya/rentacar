@@ -18,7 +18,6 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/payments")
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080"})
 public class PaymentController {
 
     private final PaymentService paymentService;
