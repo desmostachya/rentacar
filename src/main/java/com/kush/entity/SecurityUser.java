@@ -23,7 +23,7 @@ public class SecurityUser implements UserDetails {
 
     public SecurityUser(User user) {
         Set<String> actions = new HashSet<>();
-        actions.add(user.getRole().name());
+        actions.add("ROLE_"+user.getRole().name());
         Collection<SimpleGrantedAuthority> directAuthorities = actions.stream()
                 .map(SimpleGrantedAuthority::new).toList();
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>(directAuthorities);

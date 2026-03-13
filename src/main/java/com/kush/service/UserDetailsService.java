@@ -21,8 +21,6 @@ public class UserDetailsService implements org.springframework.security.core.use
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> userOpt= repository.findByEmail(username);
         if(userOpt.isPresent()){
-            User user=userOpt.get();
-            user.setRole(user.getRole());
             return new SecurityUser(userOpt.get());
         }
         else throw new UsernameNotFoundException(username);
