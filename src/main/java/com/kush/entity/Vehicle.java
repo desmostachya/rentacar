@@ -98,7 +98,7 @@ public class Vehicle {
     }
 
     public enum VehicleCategory {
-        ECONOMY, COMPACT, SEDAN, SUV, LUXURY, VAN
+        ECONOMY, COMPACT, SEDAN, SUV, LUXURY, VAN,HATCHBACK
     }
 
     public enum VehicleStatus {

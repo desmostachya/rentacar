@@ -26,4 +26,6 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     List<Reservation> findConflictingReservations(@Param("vehicle") Vehicle vehicle, 
                                                    @Param("startDate") LocalDate startDate,
                                                    @Param("endDate") LocalDate endDate);
+
+
 }

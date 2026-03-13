@@ -88,6 +88,6 @@ public class Reservation {
     }
 
     public enum PaymentStatus {
-        PENDING, PARTIAL, COMPLETED, CANCELLED, REFUNDED
+        PENDING, PARTIAL, COMPLETED, CANCELLED, REFUNDED, FAILED
     }
 }

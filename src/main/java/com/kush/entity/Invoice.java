@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -44,6 +45,15 @@ public class Invoice {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @Column(nullable = false)
+    private LocalDate invoiceDate;
+
+    @Column(nullable = false)
+    private LocalDate dueDate;
+
+    @Column(length = 1000)
+    private String notes;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reservation_id", nullable = false, unique = true)
